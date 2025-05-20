@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify</title>
+    <link href="./dist/output.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontSize: {
+              "base-mini": "18px",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: "#2B892E",
+              secondary: "#121212",
+            },
+            backgroundImage: {
+              "custom-gradient":
+                "linear-gradient(177.8deg, #1F1F1F -32.16%, #111111 98.22%)",
+            },
+            borderRadius: {
+              base: "8px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-black p-4 font-inter">
+    <div class="container-fluid grid grid-cols-8 h-screen">
+      <!-- Sidebar -->
+
+      <div
+        class="sm:col-span-3 lg:col-span-3 xl:col-span-2 flex items-start justify-start flex-col text-white pt-1 pr-4"
+      >
+        <div class="w-full h-max bg-secondary pt-4 px-5 pb-8 rounded-base">
+          <span class="flex items-center justify-start gap-1 mb-5">
+            <img src="./assets/imgs/brand/Logo.svg" alt="logo" width="22" />
+            <span class="text-md font-bold font-inter">Spotify</span>
+          </span>
+          <ul class="flex items-start justify-start flex-col gap-5">
+            <li>
+              <a
+                class="flex items-center justify-start gap-2 text-sm"
+                href="#"
+                class="hover:text-green-500"
+              >
+                <img src="./assets/imgs/svgs/home.svg" alt="home" width="15" />
+                <span class="ml-1">Home</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="flex items-center justify-start gap-2 text-sm"
+                href="#"
+                class="hover:text-green-500"
+              >
+                <img
+                  src="./assets/imgs/svgs/search.svg"
+                  alt="home"
+                  width="15"
+                />
+                <span class="ml-1">Search</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Library -->
+        <div class="w-full h-max bg-secondary pt-5 px-3 pb-8 rounded-base mt-4">
+          <span
+            class="w-full flex items-center justify-between flex-row-reverse gap-2 px-4 mb-5"
+          >
+            <svg
+              width="11"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M32 0.5V64" stroke="#9F9F9F" stroke-width="7" />
+              <path d="M0 32.5L63.5 32.5" stroke="#9F9F9F" stroke-width="7" />
+            </svg>
+
+            <span class="flex items-center justify-start gap-2">
+              <svg
+                width="15"
+                viewBox="0 0 81 86"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M77.6721 9.81912L51.3344 0.4735C50.6835 0.242534 50 0.725262 50 1.41593V83C50 84.6569 51.3431 86 53 86H78C79.6569 86 81 84.6569 81 83V14.5313C81 12.4144 79.667 10.527 77.6721 9.81912Z"
+                  fill="#D9D9D9"
+                />
+                <path d="M4 0L4 86" stroke="white" stroke-width="7" />
+                <path d="M27.5 0L27.5 86" stroke="white" stroke-width="7" />
+              </svg>
+              <span class="text-sm">Your Library</span>
+            </span>
+          </span>
+          <!--  -->
+          <div class="bg-[#1F1F1F] w-full h-max rounded-[15px] pt-5 pb-10 px-6">
+            <h3 class="text-[21px] font-semibold">
+              Create your first playlist
+            </h3>
+            <p class="text-sm mt-1 mb-5">It's easy, we'll help you</p>
+            <button
+              class="bg-white rounded-full text-black font-semibold text-sm px-5 py-2"
+            >
+              Create playlist
+            </button>
+          </div>
+          <!--  -->
+          <div
+            class="bg-[#1F1F1F] w-full h-max rounded-[15px] pt-5 pb-10 px-6 mt-4"
+          >
+            <h3 class="text-[17px] font-semibold">
+              Let’s find some podcasts to follow
+            </h3>
+            <p class="text-sm mt-1 mb-5">
+              We’ll keep you updated on new episodes
+            </p>
+            <button
+              class="bg-white rounded-full text-black font-semibold text-sm px-5 py-2"
+            >
+              Browse podcasts
+            </button>
+          </div>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Main Content -->
+
+      <div
+        class="sm:col-span-5 lg:col-span-5 xl:col-span-6 bg-custom-gradient w-full h-screen mt-1 rounded-2xl overflow-hidden"
+      >
+        <!-- Haut -->
+        <div
+          class="w-full h-[64px] flex items-center justify-between bg-[#101010] px-6"
+        >
+          <div class="flex gap-2 items-center justify-between">
+            <span
+              class="w-[30px] h-[30px] flex items-center justify-center bg-black rounded-full p-2"
+            >
+              <a href="http://">
+                <svg
+                  width="7"
+                  viewBox="0 0 39 70"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M36.5 2.5L4 35L36.5 67.5"
+                    stroke="#9F9F9F"
+                    stroke-width="5"
+                  />
+                </svg>
+              </a>
+            </span>
+            <span
+              class="w-[30px] h-[30px] flex items-center justify-center bg-black rounded-full p-2"
+            >
+              <a href="http://">
+                <svg
+                  width="7"
+                  viewBox="0 0 39 70"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.5 2.5L35 35L2.5 67.5"
+                    stroke="#9F9F9F"
+                    stroke-width="5"
+                  />
+                </svg>
+              </a>
+            </span>
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="rounded-full text-white font-semibold text-sm px-5 py-2"
+            >
+              Sign up
+            </button>
+            <button
+              class="bg-white rounded-full text-black font-semibold text-sm px-5 py-2"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+
+        <!-- Bas -->
+
+        <div
+          class="w-full px-5 py-4 flex items-center justify-start flex-wrap gap-2 mt-3"
+        >
+          <button
+            class="bg-white rounded-full text-black text-[11px] font-semibold px-4 py-1"
+          >
+            All
+          </button>
+          <button
+            class="bg-[#343333] rounded-full text-white text-[11px] px-4 py-1"
+          >
+            Music
+          </button>
+          <button
+            class="bg-[#343333] rounded-full text-white text-[11px] px-4 py-1"
+          >
+            Podcasts
+          </button>
+        </div>
+
+        <!-- Artiste -->
+
+        <div>
+          <div
+            class="flex items-center justify-between px-5 mt-6 mb-2 text-white"
+          >
+            <span class="text-xl font-semibold">Popular artists</span>
+            <span class="text-[13px] mt-2">Show more</span>
+          </div>
+
+          <!--  -->
+
+          <div>
+            <main class="max-w-full mx-auto px-4 mt-8">
+              <section>
+                <ul
+                  id="card-scroll-container"
+                  class="flex gap-x-8 overflow-x-auto whitespace-nowrap pb-4"
+                >
+                  <!-- Card 1 -->
+                  <li
+                    class="min-w-[165px] rounded h-[200px] overflow-hidden group shrink-0"
+                  >
+                    <a href="#" class="no-underline block">
+                      <div
+                        class="relative h-max flex items-center justify-center aspect-square origin-top transition-transform duration-300 ease-out group-hover:scale-50 mx-auto"
+                      >
+                        <div
+                          class="absolute w-full h-full rounded-full overflow-hidden"
+                        ></div>
+                        <img
+                          src="./assets/imgs/artists/aya.png"
+                          alt="image"
+                          class="absolute w-full h-full rounded-full object-cover group-hover:blur-sm"
+                        />
+                      </div>
+                      <h2
+                        class="text-center text-sm font-normal text-white my-2 transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                      >
+                        Aya Nakamura
+                      </h2>
+                    </a>
+                    <ul
+                      class="list-none border border-slate-50/5 rounded-lg overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                    >
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-book-check-icon lucide-book-check"
+                          >
+                            <path
+                              d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                            />
+                            <path d="m9 9.5 2 2 4-4" />
+                          </svg>
+                          Biographie</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-disc3-icon lucide-disc-3"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+                          </svg>
+                          Albums</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-youtube-icon lucide-youtube"
+                          >
+                            <path
+                              d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                            />
+                            <path d="m10 15 5-3-5-3z" />
+                          </svg>
+                          Youtube
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Card 2 -->
+                  <li
+                    class="min-w-[165px] rounded h-[200px] overflow-hidden group shrink-0"
+                  >
+                    <a href="#" class="no-underline block">
+                      <div
+                        class="relative h-max flex items-center justify-center aspect-square origin-top transition-transform duration-300 ease-out group-hover:scale-50 mx-auto"
+                      >
+                        <div
+                          class="absolute w-full h-full rounded-full overflow-hidden"
+                        ></div>
+                        <img
+                          src="./assets/imgs/artists/dadju.png"
+                          alt="image"
+                          class="absolute w-full h-full rounded-full object-cover group-hover:blur-sm"
+                        />
+                      </div>
+                      <h2
+                        class="text-center text-sm font-normal text-white my-2 transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                      >
+                        Dadju
+                      </h2>
+                    </a>
+                    <ul
+                      class="list-none border border-slate-50/5 rounded-lg overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                    >
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-book-check-icon lucide-book-check"
+                          >
+                            <path
+                              d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                            />
+                            <path d="m9 9.5 2 2 4-4" />
+                          </svg>
+                          Biographie</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-disc3-icon lucide-disc-3"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+                          </svg>
+                          Albums</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-youtube-icon lucide-youtube"
+                          >
+                            <path
+                              d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                            />
+                            <path d="m10 15 5-3-5-3z" />
+                          </svg>
+                          Youtube
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Card 3 -->
+                  <li
+                    class="min-w-[165px] rounded h-[200px] overflow-hidden group shrink-0"
+                  >
+                    <a href="#" class="no-underline block">
+                      <div
+                        class="relative h-max flex items-center justify-center aspect-square origin-top transition-transform duration-300 ease-out group-hover:scale-50 mx-auto"
+                      >
+                        <div
+                          class="absolute w-full h-full rounded-full overflow-hidden"
+                        ></div>
+                        <img
+                          src="./assets/imgs/artists/orelsan.png"
+                          alt="image"
+                          class="absolute w-full h-full rounded-full object-cover group-hover:blur-sm"
+                        />
+                      </div>
+                      <h2
+                        class="text-center text-sm font-normal text-white my-2 transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                      >
+                        Orelsan
+                      </h2>
+                    </a>
+                    <ul
+                      class="list-none border border-slate-50/5 rounded-lg overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                    >
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-book-check-icon lucide-book-check"
+                          >
+                            <path
+                              d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                            />
+                            <path d="m9 9.5 2 2 4-4" />
+                          </svg>
+                          Biographie</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-disc3-icon lucide-disc-3"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+                          </svg>
+                          Albums</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-youtube-icon lucide-youtube"
+                          >
+                            <path
+                              d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                            />
+                            <path d="m10 15 5-3-5-3z" />
+                          </svg>
+                          Youtube
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Card 4 -->
+                  <li
+                    class="min-w-[165px] rounded h-[200px] overflow-hidden group shrink-0"
+                  >
+                    <a href="#" class="no-underline block">
+                      <div
+                        class="relative h-max flex items-center justify-center aspect-square origin-top transition-transform duration-300 ease-out group-hover:scale-50 mx-auto"
+                      >
+                        <div
+                          class="absolute w-full h-full rounded-full overflow-hidden"
+                        ></div>
+                        <img
+                          src="./assets/imgs/artists/morijah.png"
+                          alt="image"
+                          class="absolute w-full h-full rounded-full object-cover group-hover:blur-sm"
+                        />
+                      </div>
+                      <h2
+                        class="text-center text-sm font-normal text-white my-2 transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                      >
+                        Morijah
+                      </h2>
+                    </a>
+                    <ul
+                      class="list-none border border-slate-50/5 rounded-lg overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                    >
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-book-check-icon lucide-book-check"
+                          >
+                            <path
+                              d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                            />
+                            <path d="m9 9.5 2 2 4-4" />
+                          </svg>
+                          Biographie</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-disc3-icon lucide-disc-3"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+                          </svg>
+                          Albums</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-youtube-icon lucide-youtube"
+                          >
+                            <path
+                              d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                            />
+                            <path d="m10 15 5-3-5-3z" />
+                          </svg>
+                          Youtube
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Card 5 -->
+                  <li
+                    class="min-w-[165px] rounded h-[200px] overflow-hidden group shrink-0"
+                  >
+                    <a href="#" class="no-underline block">
+                      <div
+                        class="relative h-max flex items-center justify-center aspect-square origin-top transition-transform duration-300 ease-out group-hover:scale-50 mx-auto"
+                      >
+                        <div
+                          class="absolute w-full h-full rounded-full overflow-hidden"
+                        ></div>
+                        <img
+                          src="./assets/imgs/artists/oli.png"
+                          alt="image"
+                          class="absolute w-full h-full rounded-full object-cover group-hover:blur-sm"
+                        />
+                      </div>
+                      <h2
+                        class="text-center text-sm font-normal text-white my-2 transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                      >
+                        Bigflo et Oli
+                      </h2>
+                    </a>
+                    <ul
+                      class="list-none border border-slate-50/5 rounded-lg overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                    >
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-book-check-icon lucide-book-check"
+                          >
+                            <path
+                              d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                            />
+                            <path d="m9 9.5 2 2 4-4" />
+                          </svg>
+                          Biographie</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-disc3-icon lucide-disc-3"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+                          </svg>
+                          Albums</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-youtube-icon lucide-youtube"
+                          >
+                            <path
+                              d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                            />
+                            <path d="m10 15 5-3-5-3z" />
+                          </svg>
+                          Youtube
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Card 6 -->
+                  <li
+                    class="min-w-[165px] rounded h-[200px] overflow-hidden group shrink-0"
+                  >
+                    <a href="#" class="no-underline block">
+                      <div
+                        class="relative h-max flex items-center justify-center aspect-square origin-top transition-transform duration-300 ease-out group-hover:scale-50 mx-auto"
+                      >
+                        <div
+                          class="absolute w-full h-full rounded-full overflow-hidden"
+                        ></div>
+                        <img
+                          src="./assets/imgs/artists/imen.png"
+                          alt="image"
+                          class="absolute w-full h-full rounded-full object-cover group-hover:blur-sm"
+                        />
+                      </div>
+                      <h2
+                        class="text-center text-sm font-normal text-white my-2 transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                      >
+                        Imen Es
+                      </h2>
+                    </a>
+                    <ul
+                      class="list-none border border-slate-50/5 rounded-lg overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                    >
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-book-check-icon lucide-book-check"
+                          >
+                            <path
+                              d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                            />
+                            <path d="m9 9.5 2 2 4-4" />
+                          </svg>
+                          Biographie</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-disc3-icon lucide-disc-3"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+                          </svg>
+                          Albums</a
+                        >
+                      </li>
+                      <li class="w-full py-1 px-4 hover:bg-slate-50/5">
+                        <a
+                          href="#"
+                          class="text-white/75 hover:text-white flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-youtube-icon lucide-youtube"
+                          >
+                            <path
+                              d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                            />
+                            <path d="m10 15 5-3-5-3z" />
+                          </svg>
+                          Youtube
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </section>
+            </main>
+          </div>
+
+          <!--  -->
+
+          <div
+            class="flex items-center justify-between px-5 mt-16 mb-0 text-white"
+          >
+            <span class="text-xl font-semibold">Popular artists</span>
+            <span class="text-[13px] mt-2">Show more</span>
+          </div>
+
+          <main class="max-w-full mx-auto px-4 mt-8">
+            <section>
+              <ul
+                id="card-scroll-container"
+                class="flex gap-x-8 overflow-x-auto whitespace-nowrap pb-4"
+              >
+                <!-- Card 1 -->
+                <li
+                  class="min-w-[165px] rounded h-[200px] overflow-hidden group shrink-0"
+                >
+                  <a href="#" class="no-underline block">
+                    <div
+                      class="relative h-max flex items-center justify-center aspect-square origin-top transition-transform duration-300 ease-out mx-auto"
+                    >
+                      <div
+                        class="absolute w-full h-full rounded-full overflow-hidden"
+                      ></div>
+                      <img
+                        src="./assets/imgs/artists/aya.png"
+                        alt="image"
+                        class="absolute w-full h-fullobject-cover"
+                      />
+                    </div>
+                    <h2
+                      class="text-center text-white my-2 transition-transform duration-300 ease-out group-hover:-translate-y-[105px]"
+                    >
+                      Aya Nakamura
+                    </h2>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

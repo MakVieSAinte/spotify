@@ -2,3 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body {
+ font-family: 'Inter', sans-serif !important;
+ font-weight: 700 !important;
+}
+
+/* .bg-custom-gradient {
+  background: linear-gradient(177.8deg, #1F1F1F -32.16%, #111111 98.22%);
+} */
+
+/* Cacher la scrollbar */
+    #card-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    #card-scroll-container {
+      -ms-overflow-style: none; /* IE/Edge */
+      scrollbar-width: none;    /* Firefox */
+    }
