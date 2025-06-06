@@ -14,10 +14,10 @@
 
   <div id="container" class="flex flex-row justify-between items-start w-full h-screen">
     <!-- section de gauche -->
-    <div id="left-sidebar" class="w-full lg:w-[300px]">
+    <div id="left-sidebar" class="w-full lg:w-[300px] h-full">
       <!-- section de navigation -->
       <section id="section_left"
-        class=" ml-4 mr-2 p-4 flex flex-col bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-4/5">
+        class=" ml-4 mr-2 p-4 flex flex-col bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full">
 
         <!-- logo -->
         <div class="inline-flex items-center gap-2 mb-4">
@@ -56,7 +56,7 @@
 
       <!-- section de la bibliotheque -->
       <section id="library-box"
-        class="mt-4 ml-4 mr-1 p-4  bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full md:w-4/5 min-h-screen">
+        class="mt-4 ml-4 mr-1 p-4  bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full h-fit">
 
         <div id="" class="flex gap-2 mb-4"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
             stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
@@ -74,11 +74,11 @@
         </div>
 
         <!-- première boite -->
-        <div id="first-box" class="p-6 pb-8 text-white bg-white bg-opacity-5  rounded-3xl shadow-lg backdrop-blur-md">
+        <div id="first-box" class="p-6 pb-8 mt-6 text-white bg-white bg-opacity-5  rounded-3xl shadow-lg backdrop-blur-md">
           <h3 class="font-bold font-sans">Créez votre première playlist</h3>
           <p>lorem ipsum dolor...</p>
           <button id="btn-playlist"
-            class="px-3.5 py-1.5 mt-6  bg-white text-black font-semibold rounded-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#BF8CE1] hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+            class="px-3.5 py-1.5 mt-6 bg-white text-black font-semibold rounded-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#BF8CE1] hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
             Create
             playlist</button>
         </div>
@@ -91,24 +91,30 @@
           <p>We'll keep tou updated on new episodes</p>
 
           <button id="btn-podcast"
-            class="  px-2.5 py-1.5 mt-6 bg-white text-black font-semibold  rounded-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#BF8CE1]  focus:outline-none focus:ring-2 focus:ring-white ">
+            class="px-2.5 py-1.5 mt-6 bg-white text-black font-semibold  rounded-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#BF8CE1]  focus:outline-none focus:ring-2 focus:ring-white ">
             Browse
             podcast</button>
 
         </div>
+               <!-- footer du sidebar -->
+        <div id="footer-sidebar" class="mt-96 text-white text-sm font-semibold">
+          <p><a href="#">Legal</a>  <a href="#">Safety & Privacy Center</a>  <a href="#">Privacy Policy</a></p>
+          <p><a href="#"> Cookies</a> <a href="#">About Ads</a> <a href="#">Accessibility</a>   </p>
+        </div>
 
+        <button id="language" class="px-4 m-4 text-white font-semibold border border-white rounded-xl">English</button>
       </section>
     </div>
 
     <!-- section de droite -->
-    <div id="mainSecond-box"
-      class=" flex flex-col gap-x-8 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full lg:w-[1100px] ml-0 h-fit p-4">
+    <div id="main-box-right"
+      class=" flex flex-col gap-x-8 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full lg:w-[1100px] h-fit ml-6">
 
       <section id="sect-right" class="flex flex-col w-full">
 
         <div class="flex justify-between items-center mb-4 w-full gap-4">
           <!-- Boutons fléchés -->
-          <div id="btn-toggle" class="text-white space-x-2">
+          <div id="btn-toggle" class="text-white space-x-2 p-2">
             <button id="left-btn"
               class="bg-[#BF8CE1] transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#d450e6] focus:outline-none focus:ring-2 focus:ring-white px-3 py-2 rounded-full font-extrabold">
               &lt; </button>
@@ -117,7 +123,7 @@
           </div>
 
           <!-- Boutons d’authentification -->
-          <div id="auth-btn" class="flex items-center gap-2">
+          <div id="auth-btn" class="flex items-center gap-2 p-4">
 
             <button
               class="text-white font-sans font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#BF8CE1] hover:rounded-2xl px-4 py-2 ml-4 ">Sign
@@ -131,9 +137,9 @@
         </div>
       </section>
 
-      <section id="sect_right-bottom" class="w-full lg:w-[1100px] mx-auto mt-6 px-4">
+      <section id="sect_right-bottom" class="w-full lg:w-[1100px] m-0 p-0 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md">
 
-        <div id="choice-button" class="">
+        <div id="choice-button" class="p-4">
           <button id="btn-all"
             class="px-4 py-1 rounded-2xl bg-white text-black font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#d450e6] focus:outline-none focus:ring-2 focus:ring-white">All</button>
           <button id="btn-music"
@@ -144,15 +150,15 @@
 
 
         <!--section artistes populaires -->
-        <div id="popular-artists" class="flex justify-between items-center mb-4 w-full gap-4 pr-2 text-white">
+        <div id="popular-artists" class="flex justify-between items-center mb-4 w-full gap-2 pr-8 text-white">
 
-          <h1 class="text-white text-xl font-bold p-4 m-4 ">Popular artists</h1>
-          <p><a href="#">show all</a> </p>
+          <h1 class="text-white text-xl font-bold px-4 m-2 ">Popular artists</h1>
+          <p class=""><a href="#" aria-label="All  populars artists">show all</a> </p>
 
         </div>
 
 
-        <div id="artists" class="flex gap-4 p-4 ">
+        <div id="artists" class="flex gap-4 p-2 lg:flex-wrap lg:justify-center ">
 
           <div id="box-artists-1" class="text-white flex flex-col items-center gap-2">
 
@@ -212,8 +218,8 @@
 
         <div id="popular-albums" class="">
 
-          <h1 class="text-white text-xl font-bold p-4 m-4 ">Popular albums</h1>
-          <div id="popular-albums" class="flex gap-4 p-4">
+          <h1 class="text-white text-xl font-bold px-4 mt-8">Popular albums</h1>
+          <div id="albums-box" class="flex gap-4 p-4">
 
             <div id="label-1" class="text-white flex flex-col items-center gap-2">
 
@@ -264,54 +270,100 @@
           </div>
         </div>
         <!-- section 3 charts -->
-        <div id="charts" class="">
-          <h1 class="text-white text-xl font-bold p-4 m-4 ">Featured Charts</h1>
-          <div id="popular-playlists" class="flex gap-8 p-4 justify-center">
+        <div id="charts" class=" lg:flex-wrap">
+          <h1 class="text-white text-xl font-bold px-4 mt-8 mx-2 ">Featured Charts</h1>
+          <section id="popular-playlists" class="flex gap-8 p-4 justify-center lg:flex-wrap lg:justify-center lg:overflow-hidden">
 
             <div id="post-1"
               class="text-white font-extrabold text-2xl p-6 rounded-lg w-40 h-40 object-cover bg-[#F4B315]">
 
-              <p>Top Songs <span class="text-opacity-5"> Global</span> </p>
+              <p>Top Songs <span class="text-white text-opacity-75 md:text-opacity-50"> Global</span> </p>
             </div>
 
             <div id="post-2"
               class="text-white font-extrabold text-2xl p-6 rounded-lg w-40 h-40 object-cover bg-[#FF0A6C]">
 
-              <p>Top Songs <span class="text-opacity-5"> India</span> </p>
+              <p>Top Songs <span class="text-white text-opacity-75 md:text-opacity-50"> India</span> </p>
             </div>
 
-            <div id="post-3" class="text-white rounded-lg w-40 h-40 object-cover bg-[#FF2CDF]">
+            <div id="post-3"
+              class="text-white font-semibold text-lg p-4 text-center rounded-lg w-40 h-40 object-cover bg-[#FF2CDF]">
 
-              <p>Top 50</p>
-
-            </div>
-
-            <div id="post-4" class="text-white rounded-lg w-40 h-40 object-cover bg-[#63DAFC]">
-
-              <p>Viral 50</p>
-            </div>
-
-            <div id="post-5" class="text-white rounded-lg w-40 h-40 object-cover bg-[#280594]">
-
-              <p>lorem</p>
-            </div>
-
-            <div id="" class="">
+              <p class="p-4">Top 50</p>
+              <hr>
+              <p class="p-2">global</p>
 
             </div>
 
-      </section>
+            <div id="post-4"
+              class="text-white font-semibold text-lg p-4 text-center rounded-lg w-40 h-40 object-cover bg-[#63DAFC]">
+
+              <p class="p-4">Viral 50</p>
+              <hr>
+              <p class="p-2">India</p>
+            </div>
+
+            <div id="post-5"
+              class="text-white font-semibold text-xl  p-6 text-center rounded-lg w-40 h-40 object-cover bg-[#280594]">
+
+              <p class="p-4">Top 10</p>
+              <hr>
+              <p class="p-2">global</p>
+            </div>
+
+          </section>
+
+            <!-- Section pied de page -->
+            <section id="box-footer" class="flex gap-x-10 mt-10 p-4 ">
+              <div>
+                <h2 class="text-white font-semibold text-xl ">Company</h2>
+                <ul class="text-xs text-gray-300 space-y-1">
+                  <li>About</li>
+                  <li>Jobs</li>
+                  <li>For record</li>
+                </ul>
+              </div>
 
 
+              <div>
+                <h2 class="text-white font-semibold text-xl">Communities</h2>
+               
+                <ul class="text-xs text-gray-300 space-y-1">
+                  <li>For Artists</li>
+                  <li>Developers</li>
+                  <li>Advertising</li>
+                  <li>Investors</li>
+                  <li>Vendors</li>
+                </ul>
+              </div>
 
+
+              <div>
+                <h2 class="text-white font-semibold text-xl ">Useful Links</h2>
+               
+                <ul class="text-xs  text-gray-300 space-y-1">
+                  <li>Mobile App</li>
+                  <li>Support</li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 class="text-white font-semibold text-xl ">Spotify Plans</h2>
+               
+                <ul class="text-xs text-gray-300 space-y-1">
+                  <li>Premium Individual</li>
+                  <li>Premium Duo</li>
+                  <li>Premium Family</li>
+                  <li>Premium Student</li>
+                  <li>Spotyfy Free</li>
+                </ul>
+              </div>
+        </section>
+               <div id="line" class=" w-full border-b-2 border-y-white opacity-10 my-3"></div>
+        <footer class=" text-white text-xs text-center p-4">
+          © 2025 Spotify Clone by féli ob's
+        </footer>
     </div>
-  </div>
-
-
-
-
-
-
 </body>
 
 </html>
