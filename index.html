@@ -1,13 +1,369 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./dist/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline text-red-600">
-    Hello world! Ok ok jjjsd
-  </h1>
+
+<body class="bg-gradient-to-bl from-[#0f162b] via-[#8316B9] to-[#0f172a]">
+
+
+
+  <div id="container" class="flex flex-row justify-between items-start w-full h-screen">
+    <!-- section de gauche -->
+    <div id="left-sidebar" class="w-full lg:w-[300px] h-full">
+      <!-- section de navigation -->
+      <section id="section_left"
+        class=" ml-4 mr-2 p-4 flex flex-col bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full">
+
+        <!-- logo -->
+        <div class="inline-flex items-center gap-2 mb-4">
+
+          <img class="w-6 " src="./assets/imgs/spotify.png" alt="Spotify Logo" />
+
+          <h1 class="text-white font-semibold"> <a href="index.html">Spotify</a></h1>
+
+        </div>
+        <!-- partie navigation -->
+        <nav class="text-white" role="navigation" aria-label="Navigation principale">
+
+          <ul class="space-y-4">
+
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
+              <a href="#home">Home</a>
+            </li>
+
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+              <a href="#search">Search</a>
+            </li>
+
+          </ul>
+        </nav>
+      </section>
+
+      <!-- section de la bibliotheque -->
+      <section id="library-box"
+        class="mt-4 ml-4 mr-1 p-4  bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full h-fit">
+
+        <div id="" class="flex gap-2 mb-4"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+          </svg>
+
+          <h2 class="text-white">Library</h2>
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6 text-white ml-auto">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+
+        </div>
+
+        <!-- première boite -->
+        <div id="first-box" class="p-6 pb-8 mt-6 text-white bg-white bg-opacity-5  rounded-3xl shadow-lg backdrop-blur-md">
+          <h3 class="font-bold font-sans">Créez votre première playlist</h3>
+          <p>lorem ipsum dolor...</p>
+          <button id="btn-playlist"
+            class="px-3.5 py-1.5 mt-6 bg-white text-black font-semibold rounded-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#BF8CE1] hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+            Create
+            playlist</button>
+        </div>
+
+        <!-- deuxième boite -->
+        <div id="second-box"
+          class="p-6 pb-8 mt-6 text-white  bg-white bg-opacity-5  rounded-3xl shadow-lg backdrop-blur-md">
+
+          <h3>Let's find podcast to follow</h3>
+          <p>We'll keep tou updated on new episodes</p>
+
+          <button id="btn-podcast"
+            class="px-2.5 py-1.5 mt-6 bg-white text-black font-semibold  rounded-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#BF8CE1]  focus:outline-none focus:ring-2 focus:ring-white ">
+            Browse
+            podcast</button>
+
+        </div>
+               <!-- footer du sidebar -->
+        <div id="footer-sidebar" class="mt-96 text-white text-sm font-semibold">
+          <p><a href="#">Legal</a>  <a href="#">Safety & Privacy Center</a>  <a href="#">Privacy Policy</a></p>
+          <p><a href="#"> Cookies</a> <a href="#">About Ads</a> <a href="#">Accessibility</a>   </p>
+        </div>
+
+        <button id="language" class="px-4 m-4 text-white font-semibold border border-white rounded-xl">English</button>
+      </section>
+    </div>
+
+    <!-- section de droite -->
+    <div id="main-box-right"
+      class=" flex flex-col gap-x-8 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md w-full lg:w-[1100px] h-fit ml-6">
+
+      <section id="sect-right" class="flex flex-col w-full">
+
+        <div class="flex justify-between items-center mb-4 w-full gap-4">
+          <!-- Boutons fléchés -->
+          <div id="btn-toggle" class="text-white space-x-2 p-2">
+            <button id="left-btn"
+              class="bg-[#BF8CE1] transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#d450e6] focus:outline-none focus:ring-2 focus:ring-white px-3 py-2 rounded-full font-extrabold">
+              &lt; </button>
+            <button id="right-btn"
+              class="bg-[#BF8CE1] transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#d450e6] focus:outline-none focus:ring-2 focus:ring-white px-3 py-2 rounded-full font-extrabold">&gt;</button>
+          </div>
+
+          <!-- Boutons d’authentification -->
+          <div id="auth-btn" class="flex items-center gap-2 p-4">
+
+            <button
+              class="text-white font-sans font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#BF8CE1] hover:rounded-2xl px-4 py-2 ml-4 ">Sign
+              in</button>
+            <!-- <button class="text-black font-sans font-semibold bg-white px-4 py-2 ml-4 rounded-2xl hover:p-[10px]">Log
+              in</button> -->
+            <button
+              class="px-4 py-2 rounded-2xl bg-white text-black font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#BF8CE1] focus:outline-none focus:ring-2 focus:ring-white">Log
+              in</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="sect_right-bottom" class="w-full lg:w-[1100px] m-0 p-0 bg-white bg-opacity-5 rounded-lg shadow-lg backdrop-blur-md">
+
+        <div id="choice-button" class="p-4">
+          <button id="btn-all"
+            class="px-4 py-1 rounded-2xl bg-white text-black font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#d450e6] focus:outline-none focus:ring-2 focus:ring-white">All</button>
+          <button id="btn-music"
+            class="text-white font-sans font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#d450e6] hover:rounded-2xl px-4 py-1">Music</button>
+          <button id="btn-pod"
+            class="text-white font-sans font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-[#d450e6] hover:rounded-2xl px-4 py-1">Podcasts</button>
+        </div>
+
+
+        <!--section artistes populaires -->
+        <div id="popular-artists" class="flex justify-between items-center mb-4 w-full gap-2 pr-8 text-white">
+
+          <h1 class="text-white text-xl font-bold px-4 m-2 ">Popular artists</h1>
+          <p class=""><a href="#" aria-label="All  populars artists">show all</a> </p>
+
+        </div>
+
+
+        <div id="artists" class="flex gap-4 p-2 lg:flex-wrap lg:justify-center ">
+
+          <div id="box-artists-1" class="text-white flex flex-col items-center gap-2">
+
+            <img src="./assets/imgs/As.jpg"
+              class="rounded-full w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 "
+              alt="">
+            <p>tailwind</p>
+          </div>
+
+          <div id="box-artists-2" class="text-white flex flex-col items-center gap-2">
+
+            <img src="./assets/imgs/Be.jpg"
+              class="rounded-full w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 "
+              alt="">
+            <p>tailwind</p>
+
+          </div>
+
+          <div id="box-artists-3" class="text-white flex flex-col items-center gap-2">
+
+            <img src="./assets/imgs/D.jpg"
+              class="rounded-full w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 "
+              alt="">
+            <p>tailwind</p>
+
+          </div>
+
+          <div id="box-artists-4" class="text-white flex flex-col items-center gap-2">
+
+            <img src="./assets/imgs/Cel.jpg"
+              class="rounded-full w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 "
+              alt="">
+            <p>tailwind</p>
+
+          </div>
+
+          <div id="box-artists-5" class="text-white flex flex-col items-center gap-2">
+
+            <img src="./assets/imgs/Da.jpg"
+              class="rounded-full w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 "
+              alt="">
+            <p>tailwind</p>
+
+          </div>
+
+          <div id="box-artists-6" class="text-white flex flex-col items-center gap-2">
+
+            <img src="./assets/imgs/Gims.jpg"
+              class="rounded-full w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 "
+              alt="">
+            <p>tailwind</p>
+
+          </div>
+
+        </div>
+        <!-- section album populaires -->
+
+        <div id="popular-albums" class="">
+
+          <h1 class="text-white text-xl font-bold px-4 mt-8">Popular albums</h1>
+          <div id="albums-box" class="flex gap-4 p-4">
+
+            <div id="label-1" class="text-white flex flex-col items-center gap-2">
+
+              <img src="./assets/imgs/album2.jpg"
+                class="rounded-lg w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                alt="album 1">
+              <p>Album 1</p>
+
+            </div>
+
+
+            <div id="label-2" class="text-white flex flex-col items-center gap-2">
+              <img src="./assets/imgs/album3.jpg"
+                class="rounded-lg w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                alt="">
+              <p>Album 2</p>
+            </div>
+
+
+            <div id="label-3" class="text-white flex flex-col items-center gap-2">
+              <img src="./assets/imgs/album7.jpg"
+                class="rounded-lg w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                alt="">
+              <p>Album 3</p>
+            </div>
+
+            <div id="label-4" class="text-white flex flex-col items-center gap-2">
+              <img src="./assets/imgs/album8.jpg"
+                class="rounded-lg w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                alt="">
+              <p>Album 4</p>
+            </div>
+
+            <div id="label-5" class="text-white flex flex-col items-center gap-2">
+              <img src="./assets/imgs/albumF.jpg"
+                class="rounded-lg w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                alt="">
+              <p>Album 5</p>
+            </div>
+
+            <div id="label-6" class="text-white flex flex-col items-center gap-2">
+              <img src="./assets/imgs/albumH.jpg"
+                class="rounded-lg w-40 h-40 object-cover transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                alt="">
+              <p>Album 6</p>
+            </div>
+
+          </div>
+        </div>
+        <!-- section 3 charts -->
+        <div id="charts" class=" lg:flex-wrap">
+          <h1 class="text-white text-xl font-bold px-4 mt-8 mx-2 ">Featured Charts</h1>
+          <section id="popular-playlists" class="flex gap-8 p-4 justify-center lg:flex-wrap lg:justify-center lg:overflow-hidden">
+
+            <div id="post-1"
+              class="text-white font-extrabold text-2xl p-6 rounded-lg w-40 h-40 object-cover bg-[#F4B315]">
+
+              <p>Top Songs <span class="text-white text-opacity-75 md:text-opacity-50"> Global</span> </p>
+            </div>
+
+            <div id="post-2"
+              class="text-white font-extrabold text-2xl p-6 rounded-lg w-40 h-40 object-cover bg-[#FF0A6C]">
+
+              <p>Top Songs <span class="text-white text-opacity-75 md:text-opacity-50"> India</span> </p>
+            </div>
+
+            <div id="post-3"
+              class="text-white font-semibold text-lg p-4 text-center rounded-lg w-40 h-40 object-cover bg-[#FF2CDF]">
+
+              <p class="p-4">Top 50</p>
+              <hr>
+              <p class="p-2">global</p>
+
+            </div>
+
+            <div id="post-4"
+              class="text-white font-semibold text-lg p-4 text-center rounded-lg w-40 h-40 object-cover bg-[#63DAFC]">
+
+              <p class="p-4">Viral 50</p>
+              <hr>
+              <p class="p-2">India</p>
+            </div>
+
+            <div id="post-5"
+              class="text-white font-semibold text-xl  p-6 text-center rounded-lg w-40 h-40 object-cover bg-[#280594]">
+
+              <p class="p-4">Top 10</p>
+              <hr>
+              <p class="p-2">global</p>
+            </div>
+
+          </section>
+
+            <!-- Section pied de page -->
+            <section id="box-footer" class="flex gap-x-10 mt-10 p-4 ">
+              <div>
+                <h2 class="text-white font-semibold text-xl ">Company</h2>
+                <ul class="text-xs text-gray-300 space-y-1">
+                  <li>About</li>
+                  <li>Jobs</li>
+                  <li>For record</li>
+                </ul>
+              </div>
+
+
+              <div>
+                <h2 class="text-white font-semibold text-xl">Communities</h2>
+               
+                <ul class="text-xs text-gray-300 space-y-1">
+                  <li>For Artists</li>
+                  <li>Developers</li>
+                  <li>Advertising</li>
+                  <li>Investors</li>
+                  <li>Vendors</li>
+                </ul>
+              </div>
+
+
+              <div>
+                <h2 class="text-white font-semibold text-xl ">Useful Links</h2>
+               
+                <ul class="text-xs  text-gray-300 space-y-1">
+                  <li>Mobile App</li>
+                  <li>Support</li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 class="text-white font-semibold text-xl ">Spotify Plans</h2>
+               
+                <ul class="text-xs text-gray-300 space-y-1">
+                  <li>Premium Individual</li>
+                  <li>Premium Duo</li>
+                  <li>Premium Family</li>
+                  <li>Premium Student</li>
+                  <li>Spotyfy Free</li>
+                </ul>
+              </div>
+        </section>
+               <div id="line" class=" w-full border-b-2 border-y-white opacity-10 my-3"></div>
+        <footer class=" text-white text-xs text-center p-4">
+          © 2025 Spotify Clone by féli ob's
+        </footer>
+    </div>
 </body>
+
 </html>
