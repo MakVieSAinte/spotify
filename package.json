@@ -1,8 +1,17 @@
 {
+  "type": "module",
+  "name": "spotify",
+  "version": "1.0.0",
+  "main": "server.js",
   "devDependencies": {
     "tailwindcss": "^3.4.17"
   },
   "scripts": {
     "watch": "tailwindcss -i ./assets/css/styles.css -o ./dist/output.css --watch"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "music-metadata": "^11.2.3"
   }
 }
