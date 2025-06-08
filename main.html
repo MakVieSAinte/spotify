@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify</title>
-    <!-- <link href="./dist/output.css" rel="stylesheet" /> -->
+    <link href="./dist/output.css" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -884,49 +884,48 @@
 
           <main class="max-w-full mx-auto px-4">
             <section>
-              <div id="albumsGrid"  class="grid grid-cols-4 gap-x-8 albums-grid overflow-x-auto">
+              <div
+                id="albumsGrid"
+                class="grid grid-cols-4 gap-x-8 albums-grid overflow-x-auto"
+              >
                 <!-- Card 1 -->
-
-                 
-                
               </div>
             </section>
 
+            <div class="player-container">
+              <div class="now-playing">
+                <img
+                  id="currentArtwork"
+                  src="placeholder.jpg"
+                  alt="Album artwork"
+                />
+                <h2 id="currentTitle">Aucune piste</h2>
+                <p id="currentArtist">-</p>
+              </div>
 
+              <div class="controls">
+                <button id="prev">⏮️</button>
+                <button id="playPause">▶️</button>
+                <button id="next">⏭️</button>
+                <input type="range" id="progress" value="0" min="0" max="100" />
+                <span id="time">0:00 / 0:00</span>
+              </div>
 
-
-
-
-         <div class="player-container">
-      <div class="now-playing">
-        <img id="currentArtwork" src="placeholder.jpg" alt="Album artwork" />
-        <h2 id="currentTitle">Aucune piste</h2>
-        <p id="currentArtist">-</p>
-      </div>
-
-      <div class="controls">
-        <button id="prev">⏮️</button>
-        <button id="playPause">▶️</button>
-        <button id="next">⏭️</button>
-        <input type="range" id="progress" value="0" min="0" max="100" />
-        <span id="time">0:00 / 0:00</span>
-      </div>  
-
-     
-
-      <!-- <div id="albumsGrid" class="albums-grid"></div> -->
-      <div id="trackList" style="display: none"></div>
-    </div>
-
-
-
-
+              <!-- <div id="albumsGrid" class="albums-grid"></div> -->
+              <div id="trackList" style="display: none"></div>
+            </div>
           </main>
         </div>
       </div>
+
+      <!--  -->
+
+      <div class="col-span-full h-28 w-full bg-red-600">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima minus ratione delectus mollitia nisi neque! Eveniet saepe distinctio id vero rerum itaque? Excepturi dolorum ad unde ipsum eveniet quaerat rem?</p>
+      </div>
+
     </div>
 
     <script type="module" src="./assets/js/app.js"></script>
-
   </body>
 </html>
