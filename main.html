@@ -44,13 +44,14 @@
     </script>
   </head>
   <body class="bg-black p-4 font-inter">
+    <div class="flex flex-col flex-grow h-screen max-h-screen min-h-screen">
     <div
-      class="container-fluid grid grid-cols-8 justify-stretch justify-items-stretch h-screen"
+      class="container-fluid grid grid-cols-8 justify-stretch justify-items-stretch"
     >
       <!-- Sidebar -->
 
       <div
-        class="sm:col-span-3 lg:col-span-3 xl:col-span-2 h-max min-h-screen flex items-start justify-start flex-col text-white pt-1 pr-4"
+        class="sm:col-span-3 lg:col-span-3 xl:col-span-2 flex items-start justify-start flex-col text-white pt-1 pr-4"
       >
         <div class="w-full h-max bg-secondary pt-4 px-5 pb-8 rounded-base">
           <span class="flex items-center justify-start gap-1 mb-5">
@@ -151,7 +152,7 @@
       <!-- Main Content -->
 
       <div
-        class="card-scroll-container sm:col-span-5 lg:col-span-5 xl:col-span-6 bg-custom-gradient w-full h-max min-h-screen mt-1 rounded-2xl overflow-x-hidden pb-20"
+        class="card-scroll-container sm:col-span-5 lg:col-span-5 xl:col-span-6 bg-custom-gradient w-full mt-1 rounded-2xl overflow-x-hidden pb-20"
       >
         <!-- Haut -->
         <div
@@ -892,7 +893,7 @@
               </div>
             </section>
 
-            <div class="player-container">
+            <!-- <div class="player-container">
               <div class="now-playing">
                 <img
                   id="currentArtwork"
@@ -911,19 +912,20 @@
                 <span id="time">0:00 / 0:00</span>
               </div>
 
-              <!-- <div id="albumsGrid" class="albums-grid"></div> -->
+              
               <div id="trackList" style="display: none"></div>
-            </div>
+            </div> -->
           </main>
         </div>
       </div>
+      
+    </div>
 
-      <!--  -->
+    <!--  -->
 
-      <div class="col-span-full h-28 w-full bg-red-600">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima minus ratione delectus mollitia nisi neque! Eveniet saepe distinctio id vero rerum itaque? Excepturi dolorum ad unde ipsum eveniet quaerat rem?</p>
-      </div>
-
+    <div class="h-28 w-full bg-red-600">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima minus ratione delectus mollitia nisi neque! Eveniet saepe distinctio id vero rerum itaque? Excepturi dolorum ad unde ipsum eveniet quaerat rem?</p>
+    </div>
     </div>
 
     <script type="module" src="./assets/js/app.js"></script>

@@ -1,27 +1,26 @@
 module.exports = {
-  content: [
-    "./**/*.html",   
-    "./**/*.js",     
-    "./assets/css/**/*.css",  
-  ],
+  content: ["./**/*.html", "./**/*.js", "./assets/css/**/*.css"],
   theme: {
     extend: {
       fontSize: {
-        'base-mini':   '16px',
-        'base':   '24px',   
+        "base-mini": "18px",
       },
-      colors: { 
-        'primary': '#2B892E', 
-        'secondary': '#3D3D3D', 
-        'secondary-two': '#BDBDBD', 
-        'secondary-three': '#DCDCDC', 
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+      },
+      colors: {
+        primary: "#2B892E",
+        secondary: "#121212",
       },
       backgroundImage: {
-        'grid-bg': "url('./assets/images/grid-bg.png')",
-        'hero-bg': "url('./assets/images/bg-hero.png')",
-        'grid-bento': "url('./assets/images/grid-bento.png')",
+        "custom-gradient":
+          "linear-gradient(177.8deg, #1F1F1F -32.16%, #111111 98.22%)",
+      },
+      borderRadius: {
+        base: "8px",
       },
     },
   },
   plugins: [],
-}
+};
