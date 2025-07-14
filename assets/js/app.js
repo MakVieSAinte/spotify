@@ -108,8 +108,6 @@ function validateDOMElements() {
 
 // Formate le temps en minutes:secondes
 
-
-
 // Vérifie si les images sont valides
 
 function isValidImageData(pictureData) {
@@ -140,29 +138,33 @@ function createElement(tag, className = "", innerHTML = "") {
 // Affichage de la section détail d'album dans main.html
 function showAlbumDetail(album) {
   // Masque la grille
-  DOM.albumsGrid.classList.add('hidden');
+  DOM.albumsGrid.classList.add("hidden");
   // Masque la section Popular Artists
-  const popularArtistsSection = document.getElementById('popularArtistsSection');
-  if (popularArtistsSection) popularArtistsSection.classList.add('hidden');
+  const popularArtistsSection = document.getElementById(
+    "popularArtistsSection"
+  );
+  if (popularArtistsSection) popularArtistsSection.classList.add("hidden");
   // Masque la section tags Music/Podcast
-  const musicTagsSection = document.getElementById('musicTagsSection');
-  if (musicTagsSection) musicTagsSection.classList.add('hidden');
+  const musicTagsSection = document.getElementById("musicTagsSection");
+  if (musicTagsSection) musicTagsSection.classList.add("hidden");
   // Affiche la section détail
-  const detailSection = document.getElementById('albumDetailSection');
-  detailSection.classList.remove('hidden');
+  const detailSection = document.getElementById("albumDetailSection");
+  detailSection.classList.remove("hidden");
 
   // Remplit les infos
-  document.getElementById('albumDetailCover').src = album.coverImage;
-  document.getElementById('albumDetailTitle').textContent = album.name;
-  document.getElementById('albumDetailArtist').textContent = album.artist;
-  document.getElementById('albumDetailYear').textContent = album.tracks[0]?.year || '';
+  document.getElementById("albumDetailCover").src = album.coverImage;
+  document.getElementById("albumDetailTitle").textContent = album.name;
+  document.getElementById("albumDetailArtist").textContent = album.artist;
+  document.getElementById("albumDetailYear").textContent =
+    album.tracks[0]?.year || "";
 
   // Remplit la liste des titres
-  const trackList = document.getElementById('albumDetailTrackList');
-  trackList.innerHTML = '';
+  const trackList = document.getElementById("albumDetailTrackList");
+  trackList.innerHTML = "";
   album.tracks.forEach((track, idx) => {
-    const li = document.createElement('li');
-    li.className = 'py-2 px-2 hover:bg-[#222] flex items-center justify-between rounded cursor-pointer group';
+    const li = document.createElement("li");
+    li.className =
+      "py-2 px-2 hover:bg-[#222] flex items-center justify-between rounded cursor-pointer group";
     li.innerHTML = `
       <span class="flex items-center gap-3">
         <span class="text-gray-400 w-6 text-xs">${idx + 1}</span>
@@ -171,8 +173,8 @@ function showAlbumDetail(album) {
       <span class="text-gray-400 text-xs">${formatTime(track.duration)}</span>
     `;
     // Correction : trouver l'index global pour la lecture
-    li.addEventListener('click', () => {
-      const globalIdx = library.findIndex(t => t.id === track.id);
+    li.addEventListener("click", () => {
+      const globalIdx = library.findIndex((t) => t.id === track.id);
       if (globalIdx !== -1) {
         currentTrackIndex = globalIdx;
         loadTrack();
@@ -194,18 +196,20 @@ function formatTime(seconds) {
 } // formatTime: unique déclaration
 
 // Bouton retour
-const backButton = document.getElementById('backButton');
+const backButton = document.getElementById("backButton");
 if (backButton) {
-  backButton.addEventListener('click', (e) => {
+  backButton.addEventListener("click", (e) => {
     e.preventDefault();
-    document.getElementById('albumDetailSection').classList.add('hidden');
-    DOM.albumsGrid.classList.remove('hidden');
+    document.getElementById("albumDetailSection").classList.add("hidden");
+    DOM.albumsGrid.classList.remove("hidden");
     // Réaffiche la section Popular Artists
-    const popularArtistsSection = document.getElementById('popularArtistsSection');
-    if (popularArtistsSection) popularArtistsSection.classList.remove('hidden');
+    const popularArtistsSection = document.getElementById(
+      "popularArtistsSection"
+    );
+    if (popularArtistsSection) popularArtistsSection.classList.remove("hidden");
     // Réaffiche la section tags Music/Podcast
-    const musicTagsSection = document.getElementById('musicTagsSection');
-    if (musicTagsSection) musicTagsSection.classList.remove('hidden');
+    const musicTagsSection = document.getElementById("musicTagsSection");
+    if (musicTagsSection) musicTagsSection.classList.remove("hidden");
   });
 }
 
