@@ -44,4 +44,7 @@ const slider = document.getElementById("card-scroll-container");
       const x = e.touches[0].pageX - slider.offsetLeft;
       const walk = (x - startX) * 1.5;
       slider.scrollLeft = scrollLeft - walk;
-    });
+    });   
+
+
+    
