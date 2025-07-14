@@ -108,13 +108,7 @@ function validateDOMElements() {
 
 // Formate le temps en minutes:secondes
 
-function formatTime(seconds) {
-  if (!seconds || isNaN(seconds)) return "0:00";
 
-  const mins = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
-  return `${mins}:${secs.toString().padStart(2, "0")}`;
-}
 
 // Vérifie si les images sont valides
 
@@ -142,6 +136,78 @@ function createElement(tag, className = "", innerHTML = "") {
 }
 
 // ===== GESTION DE L'AFFICHAGE =====
+
+// Affichage de la section détail d'album dans main.html
+function showAlbumDetail(album) {
+  // Masque la grille
+  DOM.albumsGrid.classList.add('hidden');
+  // Masque la section Popular Artists
+  const popularArtistsSection = document.getElementById('popularArtistsSection');
+  if (popularArtistsSection) popularArtistsSection.classList.add('hidden');
+  // Masque la section tags Music/Podcast
+  const musicTagsSection = document.getElementById('musicTagsSection');
+  if (musicTagsSection) musicTagsSection.classList.add('hidden');
+  // Affiche la section détail
+  const detailSection = document.getElementById('albumDetailSection');
+  detailSection.classList.remove('hidden');
+
+  // Remplit les infos
+  document.getElementById('albumDetailCover').src = album.coverImage;
+  document.getElementById('albumDetailTitle').textContent = album.name;
+  document.getElementById('albumDetailArtist').textContent = album.artist;
+  document.getElementById('albumDetailYear').textContent = album.tracks[0]?.year || '';
+
+  // Remplit la liste des titres
+  const trackList = document.getElementById('albumDetailTrackList');
+  trackList.innerHTML = '';
+  album.tracks.forEach((track, idx) => {
+    const li = document.createElement('li');
+    li.className = 'py-2 px-2 hover:bg-[#222] flex items-center justify-between rounded cursor-pointer group';
+    li.innerHTML = `
+      <span class="flex items-center gap-3">
+        <span class="text-gray-400 w-6 text-xs">${idx + 1}</span>
+        <span class="text-white text-sm">${track.title}</span>
+      </span>
+      <span class="text-gray-400 text-xs">${formatTime(track.duration)}</span>
+    `;
+    // Correction : trouver l'index global pour la lecture
+    li.addEventListener('click', () => {
+      const globalIdx = library.findIndex(t => t.id === track.id);
+      if (globalIdx !== -1) {
+        currentTrackIndex = globalIdx;
+        loadTrack();
+        audio.play().catch((error) => {
+          console.warn("Erreur lecture audio:", error);
+        });
+      }
+    });
+    trackList.appendChild(li);
+  });
+}
+
+// Formate la durée en mm:ss
+function formatTime(seconds) {
+  if (!seconds || isNaN(seconds)) return "0:00";
+  const min = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60);
+  return `${min}:${sec.toString().padStart(2, "0")}`;
+} // formatTime: unique déclaration
+
+// Bouton retour
+const backButton = document.getElementById('backButton');
+if (backButton) {
+  backButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('albumDetailSection').classList.add('hidden');
+    DOM.albumsGrid.classList.remove('hidden');
+    // Réaffiche la section Popular Artists
+    const popularArtistsSection = document.getElementById('popularArtistsSection');
+    if (popularArtistsSection) popularArtistsSection.classList.remove('hidden');
+    // Réaffiche la section tags Music/Podcast
+    const musicTagsSection = document.getElementById('musicTagsSection');
+    if (musicTagsSection) musicTagsSection.classList.remove('hidden');
+  });
+}
 
 // Affichage des albums
 
@@ -189,7 +255,7 @@ function renderAlbums() {
 
     `;
 
-    albumDiv.addEventListener("click", () => showAlbumTracks(album.name));
+    albumDiv.addEventListener("click", () => showAlbumDetail(album));
     DOM.albumsGrid.appendChild(albumDiv);
   });
 }
