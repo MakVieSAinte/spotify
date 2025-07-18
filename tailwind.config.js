@@ -10,7 +10,7 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        primary: "#2B892E",
+        primary: "#2B892E",  
         secondary: "#121212",
       },
       backgroundImage: {

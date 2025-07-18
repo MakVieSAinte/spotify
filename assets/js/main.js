@@ -8,7 +8,7 @@ const slider = document.getElementById("card-scroll-container");
       slider.classList.add("cursor-grabbing");
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
-    });
+    });   
 
     slider.addEventListener("mouseleave", () => {
       isDown = false;
